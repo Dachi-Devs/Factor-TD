@@ -8,9 +8,19 @@ public class GameManager : MonoBehaviour
     public Transform[] enemyPath;
     public Transform path;
 
+    public GameObject gameUI;
+    public GameObject deadUI;
+
     // Start is called before the first frame update
     void Start()
     {
         enemyPath = path.GetComponentsInChildren<Transform>();
+    }
+
+    public void LostGame()
+    {
+        Time.timeScale = 0.6f;
+        gameUI.SetActive(false);
+        deadUI.SetActive(true);
     }
 }

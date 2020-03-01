@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public int bounty;
 
     public GameObject deathEffect;
+    private PlayerStats ps;
 
 
 
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ps = FindObjectOfType<PlayerStats>();
         healthCurrent = value;
         UpdateValueText();
         UpdateHealthBar();
@@ -55,7 +57,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        PlayerStats.energy += bounty;
+        ps.SpendEnergy(-bounty);
         FindObjectOfType<StatsUI>().UpdateEnergyCounter();
         //GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
         //Destroy(effect, 3f);

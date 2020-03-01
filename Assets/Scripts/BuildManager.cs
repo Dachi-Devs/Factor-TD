@@ -4,14 +4,19 @@ public class BuildManager : MonoBehaviour
 {
     public GameObject turretPrefab;
     public GameObject buildUI;
-    public Vector2 buildUIOffset;
-    public TurretController turret;
+    private TurretController turret;
+    private PlayerStats ps;
+
+    void Start()
+    {
+        ps = FindObjectOfType<PlayerStats>();
+    }
 
     public void BuildOnSite(Transform siteToBuild)
     {
-        if (PlayerStats.energy > 0)
+        if (ps.GetEnergy() > 0)
         {
-            PlayerStats.energy--;
+            ps.SpendEnergy(1);
             FindObjectOfType<StatsUI>().UpdateEnergyCounter();
             Instantiate(turretPrefab, siteToBuild.position, Quaternion.identity, siteToBuild);
         }
@@ -24,9 +29,9 @@ public class BuildManager : MonoBehaviour
 
     public void UpgradeTurret()
     {
-        if (PlayerStats.energy > 0)
+        if (ps.GetEnergy() > 0)
         {
-            PlayerStats.energy--;
+            ps.SpendEnergy(1);
             FindObjectOfType<StatsUI>().UpdateEnergyCounter();
             turret.IncreaseTurretLevel();
         }
