@@ -31,10 +31,6 @@ public class DragDrop : MonoBehaviour, IDragHandler, IEndDragHandler, IDropHandl
         {
             FindObjectOfType<BuildManager>().BuildOnSite(hit.transform);
         }
-        else
-        {
-            Debug.Log("NOTHING FOUND");
-        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
