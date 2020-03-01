@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6bb41f4b85b77754685ce8a377a8d057
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pathSprite: {instanceID: 0}
+  - turret: {fileID: 2250109255456165294, guid: 315789ecb73a7614fb13de5ef1861702,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
