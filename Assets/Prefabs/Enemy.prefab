@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727336a471e23004ea87ad399cd6009a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 1
   value: 4
   valueText: {fileID: 8705235935053093673}
   healthBar: {fileID: 3309284747212551028}
@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1759b7433e2894d82097e5b2582da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
   rotSpeed: 10
 --- !u!212 &5729627300969003348
 SpriteRenderer:

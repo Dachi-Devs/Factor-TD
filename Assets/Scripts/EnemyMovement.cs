@@ -52,7 +52,8 @@ public class EnemyMovement : MonoBehaviour
 
     void EndPath()
     {
-        PlayerStats.Lives--;
+        PlayerStats.lives--;
+        FindObjectOfType<StatsUI>().UpdateHealthCounter();
         //WaveSpawner.enemyCount--;
         Destroy(gameObject);
     }
