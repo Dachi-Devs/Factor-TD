@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
@@ -9,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
     private int waypointIndex = 0;
 
     private Enemy enemy;
-    public GameManager gm;
+    private GameManager gm;
 
     public float rotSpeed = 10f;
 
@@ -50,10 +48,11 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    public int ReturnWaypointIndex() => waypointIndex;
+
     void EndPath()
     {
         FindObjectOfType<PlayerStats>().TakeDamage(enemy.value);
-        //WaveSpawner.enemyCount--;
         Destroy(gameObject);
     }
 }

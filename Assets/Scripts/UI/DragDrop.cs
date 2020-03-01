@@ -5,7 +5,7 @@ public class DragDrop : MonoBehaviour, IDragHandler, IEndDragHandler, IDropHandl
 {
     private Camera cam;
     [SerializeField]
-    private LayerMask turretLayer;
+    private LayerMask gridLayer;
 
     void Start()
     {
@@ -27,7 +27,7 @@ public class DragDrop : MonoBehaviour, IDragHandler, IEndDragHandler, IDropHandl
         Ray rayDirection = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         Debug.DrawRay(rayDirection.origin, rayDirection.direction * 15.0f, Color.red, 3f);
-        if (Physics.Raycast(rayDirection, out hit, 15.0f, turretLayer))
+        if (Physics.Raycast(rayDirection, out hit, 15.0f, gridLayer))
         {
             FindObjectOfType<BuildManager>().BuildOnSite(hit.transform);
         }
