@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class BuildManager : MonoBehaviour
 {
     public GameObject turretPrefab;
+    public Transform turretMaster;
     public GameObject buildUI;
     private TurretController turret;
     private PlayerStats ps;
@@ -26,7 +27,7 @@ public class BuildManager : MonoBehaviour
         {
             ps.SpendEnergy(1);
             FindObjectOfType<StatsUI>().UpdateEnergyCounter();
-            Instantiate(turretPrefab, siteToBuild.position, Quaternion.identity);
+            Instantiate(turretPrefab, siteToBuild.position, Quaternion.identity, turretMaster);
         }
     }
 

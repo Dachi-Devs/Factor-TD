@@ -22,10 +22,15 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         ps = FindObjectOfType<PlayerStats>();
+    }
+
+    public void SetupEnemy(int v)
+    {
+        value = v;
         healthCurrent = value;
         UpdateValueText();
         UpdateHealthBar();
-        bounty = value / 2;
+        moveSpeed = Random.Range(moveSpeed * 0.9f, moveSpeed * 1.1f);
     }
 
     void UpdateValueText()
@@ -57,8 +62,6 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        ps.SpendEnergy(-bounty);
-        FindObjectOfType<StatsUI>().UpdateEnergyCounter();
         //GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
         //Destroy(effect, 3f);
         Destroy(gameObject);
